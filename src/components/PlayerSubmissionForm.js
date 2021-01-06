@@ -13,7 +13,7 @@ const PlayerSubmissionForm = () => {
         <div className="PlayerSubmissionForm__poem-inputs">
 
           {
-            // Put your form inputs here... We've put in one below as an example
+            
           }
           <input
             placeholder="hm..."
