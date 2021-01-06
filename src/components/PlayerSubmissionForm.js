@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
-  const [submission, setSubmission] = useState ({
+  const [input, setInput] = useState ({
     adj1: '',
     noun1: '',
     adverb: '',
@@ -11,6 +11,19 @@ const PlayerSubmissionForm = (props) => {
     adj2: '',
     noun2: '',
   })
+
+  const onNameChange = (event) => {
+    const newSubmission = {
+      ...input,
+      adj1: input.adj1,
+      noun1: input.noun1,
+      adverb: input.adverb,
+      verb: input.verb,
+      adj2: input.adj2,
+      noun2: input.noun2,
+    }
+    setInput(newSubmission)
+  }
 
   return (
     <div className="PlayerSubmissionForm">
@@ -25,25 +38,29 @@ const PlayerSubmissionForm = (props) => {
                   <input
                   name = "adj1"
                   placeholder="adjective"
-                  value = {submission.adj1}
+                  value = {input.adj1}
+                  onChange={onNameChange}
                   type="text" />,
 
                   <input
                   name = "noun1"
                   placeholder="noun"
-                  value = {submission.noun1}
+                  value = {input.noun1}
+                  onChange={onNameChange}
                   type="text" />,
 
                   <input
                   name = "adverb"
                   placeholder="adverb"
-                  value = {submission.adverb}
+                  value = {input.adverb}
+                  onChange={onNameChange}
                   type="text" />,
 
                   <input
                   name = "verb"
                   placeholder="verb"
-                  value = {submission.verb}
+                  value = {input.verb}
+                  onChange={onNameChange}
                   type="text" />  
 
                   <p>the</p>
@@ -51,13 +68,15 @@ const PlayerSubmissionForm = (props) => {
                   <input
                   name = "adj2"
                   placeholder="adjective"
-                  value = {submission.adj2}
+                  value = {input.adj2}
+                  onChange={onNameChange}
                   type="text" />
 
                   <input
                   name = "noun2"
                   placeholder="noun"
-                  value = {submission.noun2}
+                  value = {input.noun2}
+                  onChange={onNameChange}
                   type="text" />
 
         </div>
