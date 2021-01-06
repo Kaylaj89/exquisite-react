@@ -13,9 +13,9 @@ const Game = () => {
     }
   }).join(' ');
 
-  const submitForm = entry => {
-    const completedGame = [...entries]
-  }
+  // const submitForm = entry => {
+  //   const completedGame = [...entries]
+  // }
 
   return (
     <div className="Game">
@@ -31,7 +31,7 @@ const Game = () => {
 
       <RecentSubmission />
 
-      <PlayerSubmissionForm PlayerSubmissionCallback={submitForm} />
+      <PlayerSubmissionForm />
 
       <FinalPoem />
 

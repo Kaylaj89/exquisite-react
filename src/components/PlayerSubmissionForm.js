@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = () => {
+const PlayerSubmissionForm = (props) => {
   return (
     <div className="PlayerSubmissionForm">
       <h3>Player Submission Form for Player #{  }</h3>
@@ -12,12 +12,36 @@ const PlayerSubmissionForm = () => {
 
         <div className="PlayerSubmissionForm__poem-inputs">
 
-          {
+                  <input
+                  placeholder="adjective"
+                  type="text" />,
+
+                  <input
+                  placeholder="noun"
+                  type="text" />,
+
+                  <input
+                  placeholder="adverb"
+                  type="text" />,
+
+                  <input
+                  placeholder="verb"
+                  type="text" />
+
+                  <p>the</p>
+
+                  <input
+                  placeholder="adjective"
+                  type="text" />
+
+                  <input
+                  placeholder="noun"
+                  type="text" />
+
+
             
-          }
-          <input
-            placeholder="hm..."
-            type="text" />
+          
+          
 
         </div>
 
