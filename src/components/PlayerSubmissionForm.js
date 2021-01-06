@@ -24,19 +24,20 @@ const PlayerSubmissionForm = (props) => {
   
   const onFormSubmitLine = (event) => {
     event.preventDefault();
+    console.log('Submitting form')
 
     if (
-      adj1 != '' &&
-      noun1 != '' &&
-      adverb != '' &&
-      verb != '' &&
-      adj2 != '' &&
-      noun2 != ''
+      input.adj1 !== '' &&
+      input.noun1 !== '' &&
+      input.adverb !== '' &&
+      input.verb !== '' &&
+      input.adj2 !== '' &&
+      input.noun2 !== ''
     ) {
 
 
 
-      
+
       setInput({
         adj1: '',
         noun1: '',
@@ -48,18 +49,20 @@ const PlayerSubmissionForm = (props) => {
     }
 
   }
-  const track_player = () => {
-    return (
+  // const track_player = () => {
+  //   return (
 
-    )
+  //   )
 
-  }
+  // }
 
   return (
     <div className="PlayerSubmissionForm">
       <h3>Player Submission Form for Player #{ }</h3>
 
-      <form className="PlayerSubmissionForm__form" >
+      <form 
+        onSubmit={onFormSubmitLine}
+        className="PlayerSubmissionForm__form" >
 
         <div className="PlayerSubmissionForm__poem-inputs">
                   
