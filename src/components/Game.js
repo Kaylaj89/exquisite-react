@@ -27,8 +27,10 @@ const Game = () => {
 
       <RecentSubmission />
 
-      <PlayerSubmissionForm />
-
+      <PlayerSubmissionForm
+        index={}
+        sendSubmission={}
+        fields={FIELDS} />
       <FinalPoem />
 
     </div>

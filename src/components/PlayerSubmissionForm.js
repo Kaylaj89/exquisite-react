@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = () => {
+  const []
   const [input, setInput] = useState ({
     The1: 'The',
     adj1: '',
@@ -23,6 +24,18 @@ const PlayerSubmissionForm = () => {
     newInputValues[name] = value
     setInput(newInputValues)
   }
+
+  // const createSentence = () => {
+  const newArray = input.map(input) => {
+    if (input.name) {
+      return input.placeholder;
+    } else {
+      return input;
+    }
+  }).join(' ');
+
+
+console.log({createSentence})
   
   const onFormSubmitLine = (event) => {
     event.preventDefault();
@@ -37,8 +50,8 @@ const PlayerSubmissionForm = () => {
       input.noun2 !== ''
     ) {
 
-      console.log(input)
-      
+     
+      // sendSubmission(input.split(",")
       
 
       setInput({
@@ -67,6 +80,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "adj1"
+                  key = "adj1"
                   placeholder="adjective"
                   value = {input.adj1}
                   onChange={onInputChange}
@@ -74,6 +88,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "noun1"
+                  key = "noun1"
                   placeholder="noun"
                   value = {input.noun1}
                   onChange={onInputChange}
@@ -81,6 +96,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "adverb"
+                  key = "adverb"
                   placeholder="adverb"
                   value = {input.adverb}
                   onChange={onInputChange}
@@ -88,6 +104,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "verb"
+                  key = "verb"
                   placeholder="verb"
                   value = {input.verb}
                   onChange={onInputChange}
@@ -97,6 +114,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "adj2"
+                  key = "adj2"
                   placeholder="adjective"
                   value = {input.adj2}
                   onChange={onInputChange}
@@ -104,6 +122,7 @@ const PlayerSubmissionForm = () => {
 
                   <input
                   name = "noun2"
+                  key = "noun2"
                   placeholder="noun"
                   value = {input.noun2}
                   onChange={onInputChange}
