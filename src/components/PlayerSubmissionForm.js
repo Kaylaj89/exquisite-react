@@ -21,6 +21,7 @@ const PlayerSubmissionForm = (props) => {
     newInputValues[name] = value
     setInput(newInputValues)
   }
+  
 
   return (
     <div className="PlayerSubmissionForm">
