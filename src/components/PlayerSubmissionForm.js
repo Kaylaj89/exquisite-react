@@ -13,7 +13,7 @@ const PlayerSubmissionForm = (props) => {
   })
 
   const onNameChange = (event) => {
-    const newSubmission = {
+    const newInput = {
       ...input,
       adj1: input.adj1,
       noun1: input.noun1,
@@ -22,7 +22,7 @@ const PlayerSubmissionForm = (props) => {
       adj2: input.adj2,
       noun2: input.noun2,
     }
-    setInput(newSubmission)
+    setInput(newInput)
   }
 
   return (
