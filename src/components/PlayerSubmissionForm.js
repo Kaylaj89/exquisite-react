@@ -25,21 +25,25 @@ const PlayerSubmissionForm = (props) => {
                   <input
                   name = "adj1"
                   placeholder="adjective"
+                  value = {submission.adj1}
                   type="text" />,
 
                   <input
                   name = "noun1"
                   placeholder="noun"
+                  value = {submission.noun1}
                   type="text" />,
 
                   <input
                   name = "adverb"
                   placeholder="adverb"
+                  value = {submission.adverb}
                   type="text" />,
 
                   <input
                   name = "verb"
                   placeholder="verb"
+                  value = {submission.verb}
                   type="text" />  
 
                   <p>the</p>
@@ -47,11 +51,13 @@ const PlayerSubmissionForm = (props) => {
                   <input
                   name = "adj2"
                   placeholder="adjective"
+                  value = {submission.adj2}
                   type="text" />
 
                   <input
                   name = "noun2"
                   placeholder="noun"
+                  value = {submission.noun2}
                   type="text" />
 
         </div>
