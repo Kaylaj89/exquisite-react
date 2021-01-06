@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = ({onSubmitCallback}) => {
+const PlayerSubmissionForm = () => {
   const [input, setInput] = useState ({
+    The1: 'The',
     adj1: '',
     noun1: '',
     adverb: '',
     verb: '',
+    the2: 'the',
     adj2: '',
     noun2: '',
   })
@@ -35,7 +37,9 @@ const PlayerSubmissionForm = ({onSubmitCallback}) => {
       input.noun2 !== ''
     ) {
 
-      onSubmitCallback(input);
+      console.log(input)
+      
+      
 
       setInput({
         adj1: '',
@@ -118,7 +122,7 @@ const PlayerSubmissionForm = ({onSubmitCallback}) => {
 PlayerSubmissionForm.propTypes = {
   index: PropTypes.number.isRequired,
   sendSubmission: PropTypes.func.isRequired,
-  fields: PropTypes.arrayOf(PropTypes.oneOfType([
+  input: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       key: PropTypes.string.isRequired,
