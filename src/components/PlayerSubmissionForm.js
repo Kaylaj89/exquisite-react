@@ -22,6 +22,38 @@ const PlayerSubmissionForm = (props) => {
     setInput(newInputValues)
   }
   
+  const onFormSubmitLine = (event) => {
+    event.preventDefault();
+
+    if (
+      adj1 != '' &&
+      noun1 != '' &&
+      adverb != '' &&
+      verb != '' &&
+      adj2 != '' &&
+      noun2 != ''
+    ) {
+
+
+
+      
+      setInput({
+        adj1: '',
+        noun1: '',
+        adverb: '',
+        verb: '',
+        adj2: '',
+        noun2: '',
+      })
+    }
+
+  }
+  const track_player = () => {
+    return (
+
+    )
+
+  }
 
   return (
     <div className="PlayerSubmissionForm">
