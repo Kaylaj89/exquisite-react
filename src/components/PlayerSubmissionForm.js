@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = (props) => {
+const PlayerSubmissionForm = ({onSubmitCallback}) => {
   const [input, setInput] = useState ({
     adj1: '',
     noun1: '',
@@ -24,7 +24,7 @@ const PlayerSubmissionForm = (props) => {
   
   const onFormSubmitLine = (event) => {
     event.preventDefault();
-    console.log('Submitting form')
+
 
     if (
       input.adj1 !== '' &&
@@ -35,8 +35,7 @@ const PlayerSubmissionForm = (props) => {
       input.noun2 !== ''
     ) {
 
-
-
+      onSubmitCallback(input);
 
       setInput({
         adj1: '',
@@ -49,12 +48,6 @@ const PlayerSubmissionForm = (props) => {
     }
 
   }
-  // const track_player = () => {
-  //   return (
-
-  //   )
-
-  // }
 
   return (
     <div className="PlayerSubmissionForm">

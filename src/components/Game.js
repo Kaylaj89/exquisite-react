@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import './Game.css';
 import PlayerSubmissionForm from './PlayerSubmissionForm';
 import FinalPoem from './FinalPoem';
@@ -12,10 +12,6 @@ const Game = () => {
       return field;
     }
   }).join(' ');
-
-  // const submitForm = entry => {
-  //   const completedGame = [...entries]
-  // }
 
   return (
     <div className="Game">
@@ -39,7 +35,7 @@ const Game = () => {
   );
 }
 
-
+//This is being rendered on the page as an example of the order of entries
 const FIELDS = [
   'The',
   {
