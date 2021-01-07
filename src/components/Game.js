@@ -1,10 +1,13 @@
-// import React, { useState } from 'react';
+import React, { useState } from 'react';
 import './Game.css';
 import PlayerSubmissionForm from './PlayerSubmissionForm';
 import FinalPoem from './FinalPoem';
 import RecentSubmission from './RecentSubmission';
 
 const Game = () => {
+  const [playerCount, setPlayerCount] = useState(1); //set count at 1
+  const [submissions, setSubmissions] = useState([]);
+
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
       return field.placeholder;
@@ -12,6 +15,17 @@ const Game = () => {
       return field;
     }
   }).join(' ');
+
+  const lineSubmission = (submission) => {
+    const newLineSubmission = [...submissions]
+
+    newLineSubmission.push(submission)
+
+    setSubmissions(newLineSubmission)
+
+    setPlayerCount(playerCount + 1)
+
+}
 
   return (
     <div className="Game">
@@ -28,8 +42,8 @@ const Game = () => {
       <RecentSubmission />
 
       <PlayerSubmissionForm
-        index={}
-        sendSubmission={}
+        index={playerCount}
+        sendSubmission={lineSubmission}
         fields={FIELDS} />
       <FinalPoem />
 

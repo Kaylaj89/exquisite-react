@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = () => {
-  const []
+const PlayerSubmissionForm = (props) => {
   const [input, setInput] = useState ({
-    The1: 'The',
+    
     adj1: '',
     noun1: '',
     adverb: '',
     verb: '',
-    the2: 'the',
     adj2: '',
     noun2: '',
   })
@@ -22,33 +20,32 @@ const PlayerSubmissionForm = () => {
     const {name, value} = event.target;
     
     newInputValues[name] = value
-    setInput(newInputValues)
+    setInput(newInputValues);
   }
 
-  // const createSentence = () => {
-  const newArray = input.map(input) => {
-    if (input.name) {
-      return input.placeholder;
-    } else {
-      return input;
-    }
-  }).join(' ');
-
-
-console.log({createSentence})
   
-  const onFormSubmitLine = (event) => {
+  const onFormSubmit = (event) => {
     event.preventDefault();
 
+    const poemData = props.fields.map(field => {
+      if (field.key) {
+        return input[field.key];
+      } else {
+        return field;
+      }
+    }).join(' ');
+  
+    props.sendSubmission(onFormSubmit)
 
-    if (
-      input.adj1 !== '' &&
-      input.noun1 !== '' &&
-      input.adverb !== '' &&
-      input.verb !== '' &&
-      input.adj2 !== '' &&
-      input.noun2 !== ''
-    ) {
+
+    // if (
+    //   input.adj1 !== '' &&
+    //   input.noun1 !== '' &&
+    //   input.adverb !== '' &&
+    //   input.verb !== '' &&
+    //   input.adj2 !== '' &&
+    //   input.noun2 !== ''
+    // ) {
 
      
       // sendSubmission(input.split(",")
@@ -61,18 +58,16 @@ console.log({createSentence})
         verb: '',
         adj2: '',
         noun2: '',
-      })
+      });
     }
-
-  }
+  
 
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{ }</h3>
+      <h3>Player Submission Form for Player #{props.index }</h3>
 
       <form 
-        onSubmit={onFormSubmitLine}
-        className="PlayerSubmissionForm__form" >
+        className="PlayerSubmissionForm__form" onSubmit={onFormSubmit}>
 
         <div className="PlayerSubmissionForm__poem-inputs">
                   
@@ -81,7 +76,7 @@ console.log({createSentence})
                   <input
                   name = "adj1"
                   key = "adj1"
-                  placeholder="adjective"
+                  placeholder="adjective1"
                   value = {input.adj1}
                   onChange={onInputChange}
                   type="text" />,
@@ -89,7 +84,7 @@ console.log({createSentence})
                   <input
                   name = "noun1"
                   key = "noun1"
-                  placeholder="noun"
+                  placeholder="noun1"
                   value = {input.noun1}
                   onChange={onInputChange}
                   type="text" />,
@@ -97,7 +92,7 @@ console.log({createSentence})
                   <input
                   name = "adverb"
                   key = "adverb"
-                  placeholder="adverb"
+                  placeholder="adverb1"
                   value = {input.adverb}
                   onChange={onInputChange}
                   type="text" />,
@@ -105,7 +100,7 @@ console.log({createSentence})
                   <input
                   name = "verb"
                   key = "verb"
-                  placeholder="verb"
+                  placeholder="verb1"
                   value = {input.verb}
                   onChange={onInputChange}
                   type="text" />  
@@ -115,7 +110,7 @@ console.log({createSentence})
                   <input
                   name = "adj2"
                   key = "adj2"
-                  placeholder="adjective"
+                  placeholder="adjective 2"
                   value = {input.adj2}
                   onChange={onInputChange}
                   type="text" />
@@ -123,7 +118,7 @@ console.log({createSentence})
                   <input
                   name = "noun2"
                   key = "noun2"
-                  placeholder="noun"
+                  placeholder="noun 2"
                   value = {input.noun2}
                   onChange={onInputChange}
                   type="text" />
@@ -151,4 +146,3 @@ PlayerSubmissionForm.propTypes = {
 }
 
 export default PlayerSubmissionForm;
-test git test
