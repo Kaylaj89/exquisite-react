@@ -13,6 +13,7 @@ const PlayerSubmissionForm = (props) => {
     noun2: '',
   })
 
+  console.log(props)
   const onInputChange = (event) => {
     const newInputValues = {
       ...input,

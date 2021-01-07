@@ -7,7 +7,8 @@ import RecentSubmission from './RecentSubmission';
 const Game = () => {
   const [playerCount, setPlayerCount] = useState(1); //set count at 1
   const [submissions, setSubmissions] = useState([]);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
       return field.placeholder;
@@ -23,9 +24,11 @@ const Game = () => {
 
     setSubmissions(newLineSubmission)
 
-    setPlayerCount(playerCount + 1)
+    setPlayerCount(playerCount + 1)}
 
-}
+  const revealPoem = () => {
+    setIsSubmitted(true);
+  }
 
   return (
     <div className="Game">
@@ -39,13 +42,19 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission />
+      <RecentSubmission
+        submission={'test'} />
 
       <PlayerSubmissionForm
         index={playerCount}
         sendSubmission={lineSubmission}
-        fields={FIELDS} />
-      <FinalPoem />
+        input={FIELDS} />
+      <FinalPoem 
+          isSubmitted={isSubmitted}
+          submissions={submissions}
+          revealPoem={revealPoem}
+
+       />
 
     </div>
   );
