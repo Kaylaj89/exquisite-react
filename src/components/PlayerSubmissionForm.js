@@ -61,7 +61,7 @@ const PlayerSubmissionForm = (props) => {
         noun2: '',
       });
     }
-  
+
 
   return (
     <div className="PlayerSubmissionForm">
@@ -83,6 +83,7 @@ const PlayerSubmissionForm = (props) => {
                   onChange={onEntryChange}
                   data-testid='adj1'
                   type="text" 
+                  className={entry[field.key] === '' ? 'PlayerSubmissionFormt__input--invalid' : ''}
                   />)
                 } else {
                   return field;
