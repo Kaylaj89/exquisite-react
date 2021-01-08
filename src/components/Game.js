@@ -49,10 +49,10 @@ const Game = () => {
       <p className="Game__format-example">
         { exampleFormat }
       </p>
-      <PlayerSubmissionForm
+      {(!isSubmitted) ? <PlayerSubmissionForm
         index={playerCount}
         sendSubmission={lineSubmission}
-        fields={FIELDS} />
+        fields={FIELDS} /> : ''}
       <FinalPoem 
           isSubmitted={isSubmitted}
           submissions={submissions}
