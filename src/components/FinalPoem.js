@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = (props) => {
-
+  if (props.isSubmitted) {
+    return (
+      <div>
+      {props.submissions.map((submission, index) => (
+        <p key={index}>{submission}</p>
+      ))
+      }
+      </div>
+    )
+  }  else {
   return (
     <div className="FinalPoem">
       <section className="FinalPoem__poem">
@@ -15,8 +24,10 @@ const FinalPoem = (props) => {
         <input type="button" value="We are finished: Reveal the Poem" className="FinalPoem__reveal-btn" />
       </div>
     </div>
-  );
-}
+    );
+  }
+
+};
 
 FinalPoem.propTypes = {
   isSubmitted: PropTypes.bool.isRequired,

@@ -8,6 +8,8 @@ const Game = () => {
   const [playerCount, setPlayerCount] = useState(1); //set count at 1
   const [submissions, setSubmissions] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  console.log(`players: ${playerCount}`)
+  console.log(`submisisons: ${submissions}`)
   
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
@@ -17,15 +19,18 @@ const Game = () => {
     }
   }).join(' ');
 
-  const lineSubmission = (submission) => {
-    const newLineSubmission = [...submissions]
+ 
 
-    newLineSubmission.push(submission)
+  const lineSubmission = (submission) => {
+    const newLineSubmission = [...submissions];
+
+    newLineSubmission.push(submissions)
 
     setSubmissions(newLineSubmission)
 
-    setPlayerCount(playerCount + 1)}
-
+    setPlayerCount(playerCount + 1)
+  }
+  
   const revealPoem = () => {
     setIsSubmitted(true);
   }
@@ -42,26 +47,24 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission
-        submission={'test'} />
+      {/* <RecentSubmission/> */}
 
       <PlayerSubmissionForm
         index={playerCount}
         sendSubmission={lineSubmission}
-        input={FIELDS} />
+        fields={FIELDS} />
       <FinalPoem 
           isSubmitted={isSubmitted}
           submissions={submissions}
           revealPoem={revealPoem}
-
-       />
+      />
 
     </div>
   );
 }
 
-//This is being rendered on the page as an example of the order of entries
-const FIELDS = [
+//ading export here per Matt Mcknett suggestion
+ export const FIELDS = [ 
   'The',
   {
     key: 'adj1',

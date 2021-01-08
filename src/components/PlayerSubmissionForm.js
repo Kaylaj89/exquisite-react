@@ -3,40 +3,40 @@ import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
-  const [input, setInput] = useState ({
+  const [entry, setEntry] = useState ({
     
     adj1: '',
     noun1: '',
-    adverb: '',
+    adv: '',
     verb: '',
     adj2: '',
     noun2: '',
   })
 
-  console.log(props)
-  const onInputChange = (event) => {
-    const newInputValues = {
-      ...input,
+  const onEntryChange = (event) => {
+    const newEntryValues = {
+      ...entry,
     }
     const {name, value} = event.target;
     
-    newInputValues[name] = value
-    setInput(newInputValues);
+    newEntryValues[name] = value
+    setEntry(newEntryValues);
   }
 
   
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const poemData = props.fields.map(field => {
+    const poemData = props.fields.map((field) => {
       if (field.key) {
-        return input[field.key];
+        return entry[field.key];
       } else {
         return field;
       }
     }).join(' ');
-  
-    props.sendSubmission(onFormSubmit)
+    
+    console.log(`here you go: ${poemData}`)
+    props.sendSubmission(poemData)
 
 
     // if (
@@ -52,10 +52,10 @@ const PlayerSubmissionForm = (props) => {
       // sendSubmission(input.split(",")
       
 
-      setInput({
+      setEntry({
         adj1: '',
         noun1: '',
-        adverb: '',
+        adv: '',
         verb: '',
         adj2: '',
         noun2: '',
@@ -76,52 +76,58 @@ const PlayerSubmissionForm = (props) => {
 
                   <input
                   name = "adj1"
-                  key = "adj1"
+                  // key = "adj1"
                   placeholder="adjective1"
-                  value = {input.adj1}
-                  onChange={onInputChange}
+                  value = {entry.adj1}
+                  onChange={onEntryChange}
+                  data-testid='adj1'
                   type="text" />,
 
                   <input
                   name = "noun1"
-                  key = "noun1"
+                  // key = "noun1"
                   placeholder="noun1"
-                  value = {input.noun1}
-                  onChange={onInputChange}
+                  value = {entry.noun1}
+                  onChange={onEntryChange}
+                  data-testid='noun1'
                   type="text" />,
 
                   <input
-                  name = "adverb"
-                  key = "adverb"
+                  name = "adv"
+                  // key = "adv"
                   placeholder="adverb1"
-                  value = {input.adverb}
-                  onChange={onInputChange}
+                  value = {entry.adv}
+                  onChange={onEntryChange}
+                  data-testid='adv'
                   type="text" />,
 
                   <input
                   name = "verb"
-                  key = "verb"
+                  // key = "verb"
                   placeholder="verb1"
-                  value = {input.verb}
-                  onChange={onInputChange}
+                  value = {entry.verb}
+                  onChange={onEntryChange}
+                  data-testid='verb'
                   type="text" />  
 
                   <p>the</p>
 
                   <input
                   name = "adj2"
-                  key = "adj2"
-                  placeholder="adjective 2"
-                  value = {input.adj2}
-                  onChange={onInputChange}
+                  // key = "adj2"
+                  placeholder="adjective2"
+                  value = {entry.adj2}
+                  onChange={onEntryChange}
+                  data-testid='adj2'
                   type="text" />
 
                   <input
                   name = "noun2"
-                  key = "noun2"
-                  placeholder="noun 2"
-                  value = {input.noun2}
-                  onChange={onInputChange}
+                  // key = "noun2"
+                  placeholder="noun2"
+                  value = {entry.noun2}
+                  onChange={onEntryChange}
+                  data-testid='noun2'
                   type="text" />
 
         </div>
