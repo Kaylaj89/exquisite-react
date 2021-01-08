@@ -8,10 +8,8 @@ const Game = () => {
   const [playerCount, setPlayerCount] = useState(1); //set count at 1
   const [submissions, setSubmissions] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  console.log(`players: ${playerCount}`)
-  console.log(`submisisons: ${submissions.useState}`)
-  
-  const exampleFormat = FIELDS.map((field) => {
+
+    const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
       return field.placeholder;
     } else {
@@ -19,16 +17,12 @@ const Game = () => {
     }
   }).join(' ');
 
- 
 
   const lineSubmission = (submission) => {
-    
-    const newLineSubmission = [...submissions];
-
+    const newLineSubmission = [...submissions]
     newLineSubmission.push(submission)
 
     setSubmissions(newLineSubmission)
-
     setPlayerCount(playerCount + 1)
   }
   
@@ -73,7 +67,7 @@ const Game = () => {
 }
 
 //ading export here per Matt Mcknett suggestion
- export const FIELDS = [ 
+export const FIELDS = [ 
   'The',
   {
     key: 'adj1',

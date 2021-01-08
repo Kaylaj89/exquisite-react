@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = (props) => {
-  console.log(props)
   const printLines = props.submissions.map((submission,index) => {
     return (
       <p key={index}>{submission}</p>

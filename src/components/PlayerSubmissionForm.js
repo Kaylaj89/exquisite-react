@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
+  //set form entries with initial empty values
   const [entry, setEntry] = useState ({
     
     adj1: '',
@@ -36,10 +37,9 @@ const PlayerSubmissionForm = (props) => {
       }
     }).join(' ');
     
-    console.log(`here you go: ${poemData}`)
     props.sendSubmission(poemData);
 
-
+    //TODO: Should have found way to validate entries so that blank entries could not be submitted
     // if (
     //   input.adj1 !== '' &&
     //   input.noun1 !== '' &&
@@ -48,9 +48,6 @@ const PlayerSubmissionForm = (props) => {
     //   input.adj2 !== '' &&
     //   input.noun2 !== ''
     // ) {
-
-      // sendSubmission(input.split(",")
-      
 
       setEntry({
         adj1: '',
@@ -81,7 +78,7 @@ const PlayerSubmissionForm = (props) => {
                   placeholder={field.placeholder}
                   value={entry[field.key] || ''} 
                   onChange={onEntryChange}
-                  data-testid='adj1'
+                  data-testid={field.key}
                   type="text" 
                   className={entry[field.key] === '' ? 'PlayerSubmissionFormt__input--invalid' : ''}
                   />)
@@ -89,8 +86,7 @@ const PlayerSubmissionForm = (props) => {
                   return field;
                 }
             })
-          }
-                    
+          }      
         </div>
 
         <div className="PlayerSubmissionForm__submit">
