@@ -58,6 +58,7 @@ const Game = () => {
           submissions={submissions}
           revealPoem={revealPoem}
       />
+      {(!isSubmitted && submissions.length > 0) ? <RecentSubmission submission={revealLastSubmission}/> : '' }
 
     </div>
   );
