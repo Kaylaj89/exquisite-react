@@ -3,38 +3,37 @@ import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = (props) => {
+  console.log(props)
+  const printLines = props.submissions.map((submission,index) => {
+    return (
+      <p key={index}>{submission}</p>
+    )
+  });
+
   if (props.isSubmitted) {
     return (
       <div className="FinalPoem">
-      <section className="FinalPoem__poem">
-        <h3>Final Poem</h3>
-      {props.submissions.map((submission, index) => (
-        <p key={index}>{submission}</p>
-        //how to make array string???? 
-      ))
-      }
-      </section>
+        <section className="FinalPoem__poem">
+          <h3>Final Poem</h3>
+            {printLines}
+            <p>TEST</p>
+        </section>
       </div>
-    )
-  }  else {
-  return (
-    <div className="FinalPoem">
-      <section className="FinalPoem__poem">
-        <h3>Final Poem</h3>
-
-      </section>
-
-      <div className="FinalPoem__reveal-btn-container">
-        <input 
-          type="button" 
-          value="We are finished: Reveal the Poem" 
-          onClick={props.revealPoem} 
-          className="FinalPoem__reveal-btn" />
+    );
+  } else {
+    return (
+      <div className="FinalPoem">
+        <div className="FinalPoem__reveal-btn-container">
+          <input 
+            type="button" 
+            value="We are finished: Reveal the Poem" 
+            className="FinalPoem__reveal-btn" 
+            onClick={props.revealPoem} />
+            
+        </div>
       </div>
-    </div>
     );
   }
-
 };
 
 FinalPoem.propTypes = {

@@ -19,24 +19,25 @@ const PlayerSubmissionForm = (props) => {
     }
     const {name, value} = event.target;
     
-    newEntryValues[name] = value
+    newEntryValues[name] = value;
     setEntry(newEntryValues);
-  }
+  };
 
   
   const onFormSubmit = (event) => {
     event.preventDefault();
 
-    const poemData = props.fields.map((field) => {
+    const poemData = props.fields.map(field => {
+      const submittedData = {...entry};
       if (field.key) {
-        return entry[field.key];
+        return submittedData[field.key];
       } else {
         return field;
       }
     }).join(' ');
     
     console.log(`here you go: ${poemData}`)
-    props.sendSubmission(poemData)
+    props.sendSubmission(poemData);
 
 
     // if (
@@ -48,7 +49,6 @@ const PlayerSubmissionForm = (props) => {
     //   input.noun2 !== ''
     // ) {
 
-     
       // sendSubmission(input.split(",")
       
 
@@ -71,65 +71,25 @@ const PlayerSubmissionForm = (props) => {
         className="PlayerSubmissionForm__form" onSubmit={onFormSubmit}>
 
         <div className="PlayerSubmissionForm__poem-inputs">
-                  
-                  <p>The</p>
-
+          {
+            props.fields.map((field, i) => {
+              if (field.key) {
+                return (
                   <input
-                  name = "adj1"
-                  // key = "adj1"
-                  placeholder="adjective1"
-                  value = {entry.adj1}
+                  key={field.key}
+                  name={field.key}
+                  placeholder={field.placeholder}
+                  value={entry[field.key] || ''} 
                   onChange={onEntryChange}
                   data-testid='adj1'
-                  type="text" />,
-
-                  <input
-                  name = "noun1"
-                  // key = "noun1"
-                  placeholder="noun1"
-                  value = {entry.noun1}
-                  onChange={onEntryChange}
-                  data-testid='noun1'
-                  type="text" />,
-
-                  <input
-                  name = "adv"
-                  // key = "adv"
-                  placeholder="adverb1"
-                  value = {entry.adv}
-                  onChange={onEntryChange}
-                  data-testid='adv'
-                  type="text" />,
-
-                  <input
-                  name = "verb"
-                  // key = "verb"
-                  placeholder="verb1"
-                  value = {entry.verb}
-                  onChange={onEntryChange}
-                  data-testid='verb'
-                  type="text" />  
-
-                  <p>the</p>
-
-                  <input
-                  name = "adj2"
-                  // key = "adj2"
-                  placeholder="adjective2"
-                  value = {entry.adj2}
-                  onChange={onEntryChange}
-                  data-testid='adj2'
-                  type="text" />
-
-                  <input
-                  name = "noun2"
-                  // key = "noun2"
-                  placeholder="noun2"
-                  value = {entry.noun2}
-                  onChange={onEntryChange}
-                  data-testid='noun2'
-                  type="text" />
-
+                  type="text" 
+                  />)
+                } else {
+                  return field;
+                }
+            })
+          }
+                    
         </div>
 
         <div className="PlayerSubmissionForm__submit">

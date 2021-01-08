@@ -9,7 +9,7 @@ const Game = () => {
   const [submissions, setSubmissions] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   console.log(`players: ${playerCount}`)
-  console.log(`submisisons: ${submissions}`)
+  console.log(`submisisons: ${submissions.useState}`)
   
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
@@ -22,9 +22,10 @@ const Game = () => {
  
 
   const lineSubmission = (submission) => {
+    
     const newLineSubmission = [...submissions];
 
-    newLineSubmission.push(submissions)
+    newLineSubmission.push(submission)
 
     setSubmissions(newLineSubmission)
 
@@ -34,6 +35,8 @@ const Game = () => {
   const revealPoem = () => {
     setIsSubmitted(true);
   }
+
+  const revealLastSubmission = submissions[submissions.length - 1]
 
   return (
     <div className="Game">
@@ -46,9 +49,6 @@ const Game = () => {
       <p className="Game__format-example">
         { exampleFormat }
       </p>
-
-      {/* <RecentSubmission/> */}
-
       <PlayerSubmissionForm
         index={playerCount}
         sendSubmission={lineSubmission}
