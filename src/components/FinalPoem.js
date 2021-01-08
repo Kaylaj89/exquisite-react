@@ -10,6 +10,7 @@ const FinalPoem = (props) => {
         <h3>Final Poem</h3>
       {props.submissions.map((submission, index) => (
         <p key={index}>{submission}</p>
+        //how to make array string???? 
       ))
       }
       </section>
