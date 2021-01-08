@@ -103,7 +103,7 @@ const PlayerSubmissionForm = (props) => {
 PlayerSubmissionForm.propTypes = {
   index: PropTypes.number.isRequired,
   sendSubmission: PropTypes.func.isRequired,
-  input: PropTypes.arrayOf(PropTypes.oneOfType([
+  fields: PropTypes.arrayOf(PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.shape({
       key: PropTypes.string.isRequired,

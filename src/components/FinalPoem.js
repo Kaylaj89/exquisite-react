@@ -16,7 +16,6 @@ const FinalPoem = (props) => {
         <section className="FinalPoem__poem">
           <h3>Final Poem</h3>
             {printLines}
-            <p>TEST</p>
         </section>
       </div>
     );
